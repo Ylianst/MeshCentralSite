@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv=X-UA-Compatible content="IE=edge" />
+    <meta content="text/html;charset=utf-8" http-equiv=Content-Type />
+    <meta name=viewport content="user-scalable=0.7,initial-scale=0.7,minimum-scale=0.7,maximum-scale=1.0" />
+    <meta name=apple-mobile-web-app-capable content=yes />
+    <meta name=format-detection content="telephone=no" />
+    <meta name="robots" content="noindex,nofollow">
+    <link type=text/css href="/styles/style.css" media="screen" rel="stylesheet" title="CSS" />
+    <link rel="apple-touch-icon" href="/favicon-303x303.png" />
+    <title>MeshCentral - Tutorials</title>
+    <style>
+        body {
+            background-color: #147;
+            background: linear-gradient(to bottom right, #369, #036);
+            height: 100%;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial,Helvetica,sans-serif;
+        }
+
+        a:link { color: #c8c8c8; }
+        a:visited { color: #c8c8c8; }
+        a:hover { color: #c8c8c8; }
+        a:active { color: #c8c8c8; }
+        a { text-decoration: none; }
+
+        .logoimg {
+            margin:10px
+        }
+
+        .videoItem {
+            max-width: 100%;
+            padding: 12px;
+            background-color: #666;
+            cursor: pointer;
+            box-shadow: black 2px 2px 12px;
+            margin-bottom: 12px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .videoItem:hover {
+            background-color: #888;
+        }
+
+        .ybutton {
+            background-color:orange;
+        }
+
+        .ybutton:hover {
+            background-color:yellow;
+        }
+
+        .divright {
+            position:absolute;
+            right:20px;
+            width:calc(100vw - 360px);
+            height:calc(100vh - 300px);
+            top:120px;
+            background-color:black;
+            box-shadow:black 0px 0px 30px;
+        }
+
+        .divleft {
+            position:absolute;
+            left:00px;
+            width:340px;
+            bottom:20px;
+            top:120px;
+            overflow-y:auto
+        }
+
+        .divdesc {
+            position:absolute;
+            right:20px;
+            width:calc(100vw - 360px);
+            bottom:20px;
+            height:140px;
+            font-size:20px
+        }
+
+        @media only screen and (max-height: 600px) {
+             .divright {
+                height:calc(100vh - 140px);
+            }
+
+            .divdesc {
+                display:none;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            .divright {
+                position:unset;
+                margin:20px;
+                width:calc(100vw - 40px);
+                height:calc((100vw - 40px) * 0.63158);
+                background-color:black;
+                box-shadow:black 0px 0px 30px;
+            }
+
+            .divleft {
+                position:unset;
+                left:00px;
+                width:100%;
+                bottom:20px;
+                top:120px;
+                overflow-y:auto
+            }
+
+            .divdesc {
+                display:none;
+                position:unset;
+                right:20px;
+                width:calc(100vw - 360px);
+                bottom:20px;
+                height:140px;
+                font-size:20px
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img style="position:absolute;left:0;bottom:0;z-index:-1;height:60%;opacity:0.1" src="../../images/login/back.png" />
+    <div style="position:relative;background-color:#147;box-shadow:black 0px 0px 60px;width:100%;height:100px">
+        <a href="index.html"><img style="position:absolute;left:0;top:0;z-index:0" src="banner.png" srcset="bannerhd.png 2x" /></a>
+        <div style="position:absolute;left:120px;top:10px;font-size:50px;text-shadow: 2px 2px 4px black"><b>MeshCentral</b></div>
+        <div style="position:absolute;right:0;top:0;padding:16px"><a href="/login" style="float:right"><div class="ybutton" style="width:130px;color:black;border-radius:5px;padding:8px;box-shadow: black 2px 2px 6px;text-align:center;cursor:pointer"><b>Public Server Login</b></div></a></div>
+        <div style="position:absolute;left:115px;top:60px;padding:8px">
+            <a href="index.html" style="color:#EEE"><b><u>Home</u></b></a>&nbsp;
+            <a href="screens.html" style="color:#EEE"><b><u>Screens</u></b></a>&nbsp;
+            <a href="downloads.html" style="color:#EEE"><b><u>Downloads</u></b></a>&nbsp;
+            <a href="https://twitter.com/meshcentral" style="color:#EEE"><b><u>Twitter</u></b></a>&nbsp;
+            <a href="https://meshcentral2.blogspot.com/" style="color:#EEE"><b><u>Blog</u></b></a>&nbsp;
+            <a href="https://github.com/Ylianst/MeshCentral" style="color:#EEE"><b><u>GitHub</u></b></a>&nbsp;
+            <a href="https://www.npmjs.com/package/meshcentral" style="color:#EEE"><b><u>NPM</u></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="divright">
+        <iframe id="xframe" style="max-width:100%;max-height:100%" width="1920" height="1080" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="divleft">
+        <div id="vid1" class="videoItem" onclick="play(1)"><span id="vids1" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>Installing using NPM</div>
+        <div id="vid2" class="videoItem" onclick="play(2)"><span id="vids2" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>Basic usage</div>
+        <div id="vid5" class="videoItem" onclick="play(3)"><span id="vids3" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>Two-factor authentication</div>
+        <div id="vid3" class="videoItem" onclick="play(4)"><span id="vids4" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>MeshCentral with NGINX</div>
+        <div id="vid4" class="videoItem" onclick="play(5)"><span id="vids5" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>MeshCentral + MeshCommander</div>
+        <div id="vid6" class="videoItem" onclick="play(6)"><span id="vids6" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>MeshCentral Router</div>
+        <div id="vid7" class="videoItem" onclick="play(7)"><span id="vids7" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>Intel&reg; AMT management</div>
+        <div id="vid8" class="videoItem" onclick="play(8)"><span id="vids8" style="display:none"><img src="wright15.png" srcset="wright30.png 2x" style="margin-right:10px" /></span>Android Agent</div>
+    </div>
+    <div class="divdesc" id="xdesc"></div>
+    <script>
+        //<div style="position:absolute;left:0;bottom:0;background-color:#FFF;box-shadow:black 0px 0px 60px;width:100%;height:80px"></div>
+        //
+        // Quick UI functions, a bit of a replacement for jQuery
+        function Q(x) { return document.getElementById(x); }                            // "Q"
+        function QS(x) { try { return Q(x).style; } catch (x) { } }                     // "Q" style
+        function QE(x, y) { try { Q(x).disabled = !y; } catch (x) { } }                 // "Q" enable
+        function QV(x, y) { try { QS(x).display = (y ? '' : 'none'); } catch (x) { } }  // "Q" visible
+        function QA(x, y) { Q(x).innerHTML += y; }                                      // "Q" append
+        function QH(x, y) { Q(x).innerHTML = y; }                                       // "Q" html
+        function QC(x) { try { return Q(x).classList; } catch (x) { } }                 // "Q" class
+
+        function play(x) {
+            if (x == 1) { Q('xframe').src = 'https://www.youtube.com/embed/LSiWuu71k_U'; QH('xdesc', "A demonstration of installing MeshCentral using NPM. Basically running \"npm install meshcentral\" followed by \"node node_modules\meshcentral\". Installation should only take a few minutes.") }
+            if (x == 2) { Q('xframe').src = 'https://www.youtube.com/embed/1E3NqGJzYds'; QH('xdesc', "Demonstration on how to update and use MeshCentral and show off the real-time user interface, multi-user support and more.") }
+            if (x == 3) { Q('xframe').src = 'https://www.youtube.com/embed/dlChCc2cjOQ'; QH('xdesc', "Demonstration of how two-factor authentication works with MeshCentral. We show OTP passwords, FIDO keys and backup codes.") }
+            if (x == 4) { Q('xframe').src = 'https://www.youtube.com/embed/ebDVAsistbk'; QH('xdesc', "Setting up MeshCentral with NGINX as a reverse proxy in front of the server. In this setup, MeshCentral is sharing an IP address with other services.") }
+            if (x == 5) { Q('xframe').src = 'https://www.youtube.com/embed/nsqF1uOCJx4'; QH('xdesc', "If you use Intel&reg; Active Management Technology (Intel AMT), this demonstration shows how MeshCommander can work with MeshCentral to manage devices over the internet.") }
+            if (x == 6) { Q('xframe').src = 'https://www.youtube.com/embed/0bQplPSWB4k'; QH('xdesc', "We show how MeshCentral Router can be used to setup TCP port maps from the local computer to any computer on your MeshCentral account. This is perfect for using native application like RDP, Putty or WinSCP to connect to remote devices without the need for a VPN.") }
+            if (x == 7) { Q('xframe').src = 'https://www.youtube.com/embed/mxkGRpHHvgA'; QH('xdesc', "Demonstration of Intel&reg; AMT activation and connection using Client Initiated Remote Access (CIRA).") }
+            if (x == 8) { Q('xframe').src = 'https://www.youtube.com/embed/LbqdlT5OXeo'; QH('xdesc', "Demonstration of the MeshCentral Agent from Android. Pair your device using a QR code and access the device's information and files from the web site.") }
+            for (var i = 1; i < 9; i++) { QV('vids' + i, i == x); }
+        }
+
+        play(1)
+    </script>
+</body>
+</html>

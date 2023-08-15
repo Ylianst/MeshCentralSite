@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv=X-UA-Compatible content="IE=edge" />
+    <meta content="text/html;charset=utf-8" http-equiv=Content-Type />
+    <meta name=viewport content="user-scalable=0.7,initial-scale=0.7,minimum-scale=0.7,maximum-scale=1.0" />
+    <meta name=apple-mobile-web-app-capable content=yes />
+    <meta name=format-detection content="telephone=no" />
+    <meta name="robots" content="noindex,nofollow">
+    <link type=text/css href="/styles/style.css" media="screen" rel="stylesheet" title="CSS" />
+    <link rel="apple-touch-icon" href="/favicon-303x303.png" />
+    <title>MeshCentral - Downloads</title>
+    <style>
+        body {
+            background-color: #147;
+            background: linear-gradient(to bottom right, #369, #036);
+            height: 100%;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial,Helvetica,sans-serif;
+        }
+
+        a:link { color: #c8c8c8; }
+        a:visited { color: #c8c8c8; }
+        a:hover { color: #c8c8c8; }
+        a:active { color: #c8c8c8; }
+        a { text-decoration: none; }
+
+        .xlink {
+            text-decoration: underline
+        }
+
+        .logoimg {
+            margin:10px
+        }
+
+        .ybutton {
+            background-color:orange;
+        }
+
+        .ybutton:hover {
+            background-color:yellow;
+        }
+
+        .dlspan {
+            background-color:gray;
+            color:black;
+            font-size:16px;
+            padding:4px;
+            border-radius:4px;
+            box-shadow: 2px 2px 4px black;
+        }
+
+        .dlspan2 {
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        #container {
+            display: flex;
+            align-items: stretch;
+            flex-flow: column wrap;
+        }
+
+        div#tswsidecol {
+	        float: left;
+	        width: 400px;
+        }
+
+        div#tswcontent {
+	        float: left;
+	        width: calc(100% - 400px);
+        }
+
+        @media only screen and (max-width: 900px) {
+	        div#tswsidecol {
+		        float: none;
+		        width: 100%;
+	        }
+	        div#tswcontent {
+		        float: none;
+		        width: 100%;
+	        }
+        }
+
+        div#tswcontproper {
+	        padding-left: 5px;
+	        padding-right: 5px;
+        }
+
+        div#tswsideproper, div#tswothersideproper {
+	        padding-left: 5px ;
+	        padding-right: 5px ;
+        }
+
+    </style>
+</head>
+<body>
+    <img style="position:absolute;left:0;bottom:0;z-index:-1;height:60%;opacity:0.1" src="../../images/login/back.png" />
+    <div style="position:relative;background-color:#147;box-shadow:black 0px 0px 60px;width:100%;height:100px">
+        <a href="index.html"><img style="position:absolute;left:0;top:0;z-index:0" src="banner.png" srcset="bannerhd.png 2x" /></a>
+        <div style="position:absolute;left:120px;top:10px;font-size:50px;text-shadow: 2px 2px 4px black"><b>MeshCentral</b></div>
+        <div style="position:absolute;right:0;top:0;padding:16px"><a href="/login" style="float:right"><div class="ybutton" style="width:130px;color:black;border-radius:5px;padding:8px;box-shadow: black 2px 2px 6px;text-align:center;cursor:pointer"><b>Public Server Login</b></div></a></div>
+        <div style="position:absolute;left:115px;top:60px;padding:8px">
+            <a href="index.html" style="color:#EEE"><b><u>Home</u></b></a>&nbsp;
+            <a href="screens.html" style="color:#EEE"><b><u>Screens</u></b></a>&nbsp;
+            <a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" style="color:#EEE"><b><u>YouTube</u></b></a>&nbsp;
+            <a href="https://twitter.com/meshcentral" style="color:#EEE"><b><u>Twitter</u></b></a>&nbsp;
+            <a href="https://meshcentral2.blogspot.com/" style="color:#EEE"><b><u>Blog</u></b></a>&nbsp;
+            <a href="https://github.com/Ylianst/MeshCentral" style="color:#EEE"><b><u>GitHub</u></b></a>&nbsp;
+            <a href="https://www.npmjs.com/package/meshcentral" style="color:#EEE"><b><u>NPM</u></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div style="position:absolute;left:0;right:0;top:100px;bottom:0;overflow:auto;padding:12px;font-size:14px">
+        <div id="tswcontainer">
+            <div id="tswcontent">
+                <div id="tswcontproper" style="text-shadow: 1px 1px 4px black">
+                    <!-- start of content column: insert your content here -->
+
+                    <h1>Installation</h1>
+                    <div style="margin-left:12px">
+                        <div>
+                            Getting started is easy. If you don't have it already, install <a class="xlink" href="https://nodejs.org">NodeJS</a>. Then, create an empty folder and do this:<br />
+                        </div><br />
+                        <div style="padding:12px;width:380px;font-size:20px;font-family:monospace;background-color:black;color:antiquewhite;box-shadow:black 0px 0px 20px;border-radius:6px">
+                            <b>
+                                npm install meshcentral<br />
+                                node node_modules/meshcentral
+                            </b>
+                        </div><br />
+                        <div>
+                            That's it. MeshCentral will set itself up and start managing computers on your local network. By default it will be setup in LAN mode and agents you install will
+                            multicast on the local network to find the server. To setup the server so that agents use a well known DNS name and to start customizing your server, go in the
+                            "meshcentral-data" folder and edit the config.json file. The configuration file must be valid JSON, you can <a class="xlink" href="https://duckduckgo.com/?q=json+lint&t=h_&ia=answer">use this link</a> to validate the file format.
+                        </div><br />
+                        <div>
+                            For Windows users, you can download the MeshCentral Installer that will automate installation of NodeJS and provide basic configuration of the server. This option is not recommanded for advanced users.<br />
+                            <br />
+                            <div style="margin-left:20px">
+                                <a href="tools/MeshCentralInstaller.exe"><span class="dlspan" style="text-shadow:none"><b>Win32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCentral Installer</span></a><br /><br />
+                            </div>
+                            By default, MeshCentral will use NeDB as this is the built-in database. For more advanced users, it's recommanded to switch to using MongoDB. MeshCentral can be installed
+                            on a very small server. A <a class="xlink" href="https://www.raspberrypi.org/">Raspberry Pi</a> or <a class="xlink" href="https://aws.amazon.com/ec2/pricing/on-demand/">AWS t3.nano running Amazon Linux 2 instance</a> for 5$ a month will do just fine for managing up to a few hundred devices.<br />
+                            You can run the MeshCentral Server with --help to get options for background installation.
+                        </div><br />
+                    </div>
+
+                    <h1>Configuration</h1>
+                    <div style="margin-left:12px">
+                        <div>
+                            Once you get MeshCentral installed, the first user account that is created will be the server administrator. So, don't delay and nagivate to the login page and create a new account.
+                            You can then start using your server right away. A lot of the fun with MeshCentral is the 100's of configuration options that are avaialble in the config.json file. You can
+                            put your own branding on the web pages, setup a STMP email server, SMS services and much more.
+                        </div><br />
+                        <div>
+                            You can look <a class="xlink" href="https://raw.githubusercontent.com/Ylianst/MeshCentral/master/sample-config.json">here for simple config.json</a>, <a class="xlink" href="https://raw.githubusercontent.com/Ylianst/MeshCentral/master/sample-config-advanced.json">here for a more advanced configuration</a> and <a class="xlink" href="https://raw.githubusercontent.com/Ylianst/MeshCentral/master/meshcentral-config-schema.json">here for all possible configuration options</a>.
+                            You can also take a look at the <a class="xlink" href="docs/MeshCentral2InstallGuide.pdf">MeshCentral User's Guide</a> and <a class="xlink" href="tutorials.html">tutorial videos</a> for additional help.
+                        </div><br />
+                    </div>
+
+                    <!-- end of content column: put your content above this line -->
+                </div>
+            </div>
+
+            <div id="tswsidecol">
+                <div id="tswsideproper">
+                    <!-- start of side column: insert your navigation menu, etc, here -->
+
+                    <h1>Documentation</h1>
+                    <div style="margin-left:12px">
+                        <a href="docs/MeshCentral2UserGuide.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">User's Guide</span></a><br /><br />
+                        <a href="docs/MeshCentral2InstallGuide.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">Install Guide</span></a><br /><br />
+                        <a href="docs/MeshCentral2DesignArchitecture.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">Design and Architecture Guide</span></a><br /><br />
+                        <a href="docs/MeshCentral2RouterUserGuide.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCentral Router Guide</span></a><br /><br />
+                        <a href="docs/MeshCtrlUsersGuide.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCtrl Command Line Tool</span></a><br /><br />
+                        <a href="docs/MeshCmdUserGuide.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd Command Line Tool</span></a><br /><br />
+                        <a href="docs/managementfeatures.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">Management features</span></a><br /><br />
+                        <a href="docs/securityfeatures.pdf"><span class="dlspan"><b>PDF</b></span>&nbsp;&nbsp;<span class="dlspan2">Security features</span></a>
+                    </div><br />
+
+                    <h1>Tools Downloads</h1>
+                    <div style="margin-left:12px">
+                        <a href="tools/MeshCentralInstaller.exe"><span class="dlspan"><b>Win32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCentral Installer</span></a><br /><br />
+                        <a href="tools/MeshCentralRouter.exe"><span class="dlspan"><b>Win32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCentral Router</span></a><br /><br />
+                        <a href="tools/MeshCentralAssistant.exe"><span class="dlspan"><b>Win32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCentral Assistant</span></a><br /><br />
+                        <a href="tools/MeshCentralRouter.dmg"><span class="dlspan"><b>macOS</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCentral Router</span></a><br /><br />
+                    </div><br />
+
+                    <h1>Mobile Downloads</h1>
+                    <div style="margin-left:12px">
+                        <a href="https://play.google.com/store/apps/details?id=com.meshcentral.agent2"><span class="dlspan"><b>Store</b></span>&nbsp;&nbsp;<span class="dlspan2">Android Agent</span></a><br /><br />
+                        <a href="https://info.meshcentral.com/downloads/MeshCentral2/meshcentral-agent.apk"><span class="dlspan"><b>APK</b></span>&nbsp;&nbsp;<span class="dlspan2">Android Agent APK</span></a><br /><br />
+                    </div><br />
+
+                    <h1>MeshCmd Downloads</h1>
+                    <div style="margin-left:12px">
+                        <a href="https://meshcentral.com/meshagents?meshcmd=3"><span class="dlspan"><b>Win32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd for Windows x86 32bit</span></a><br /><br />
+                        <a href="https://meshcentral.com/meshagents?meshcmd=4"><span class="dlspan"><b>Win64</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd for Windows x86 64bit</span></a><br /><br />
+                        <a href="https://meshcentral.com/meshagents?meshcmd=5"><span class="dlspan"><b>x86-32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd for Linux x86 32bit</span></a><br /><br />
+                        <a href="https://meshcentral.com/meshagents?meshcmd=6"><span class="dlspan"><b>x86-64</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd for Linux x86 64bit</span></a><br /><br />
+                        <a href="https://meshcentral.com/meshagents?meshcmd=25"><span class="dlspan"><b>ARM-32</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd for Linux ARM 32bit</span></a><br /><br />
+                        <a href="https://meshcentral.com/meshagents?meshcmd=26"><span class="dlspan"><b>ARM-64</b></span>&nbsp;&nbsp;<span class="dlspan2">MeshCmd for Linux ARM 64bit</span></a><br /><br />
+                    </div><br />
+
+                    <!-- end of side column: put your navigation menu, etc, above this line -->
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+
+        </div>
+    </div>
+    <script>
+        // Quick UI functions, a bit of a replacement for jQuery
+        function Q(x) { return document.getElementById(x); }                            // "Q"
+        function QS(x) { try { return Q(x).style; } catch (x) { } }                     // "Q" style
+        function QE(x, y) { try { Q(x).disabled = !y; } catch (x) { } }                 // "Q" enable
+        function QV(x, y) { try { QS(x).display = (y ? '' : 'none'); } catch (x) { } }  // "Q" visible
+        function QA(x, y) { Q(x).innerHTML += y; }                                      // "Q" append
+        function QH(x, y) { Q(x).innerHTML = y; }                                       // "Q" html
+        function QC(x) { try { return Q(x).classList; } catch (x) { } }                 // "Q" class
+    </script>
+</body>
+</html>

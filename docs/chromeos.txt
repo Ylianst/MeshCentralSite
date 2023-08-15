@@ -1,0 +1,35 @@
+# MeshCentral ChromeOS Agent Installation
+
+It's possible to install the MeshAgent in ChromeOS when the device is placed in debug mode. You will need a server with MeshCentral v0.7.47 or better for these instructions to work. For help on enabling debug more, take a look here:
+
+    https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/debugging-features
+
+Exact details on how to enable debug mode may change depending on the device. Once in debug mode, you first need to disable rootfs verification. Run the terminal by pressing "ctrl-alt-t" to bring up the crosh terminal. Then type "shell" and run the following commands:
+
+    sudo su -
+    cd /usr/share/vboot/bin/
+    ./make_dev_ssd.sh --remove_rootfs_verification
+
+The above line will return a warning, but it will tell you the boot partition number, which you 
+will need when specifying the above command again, this time with the --partions options. Specify the number instead of (ID)
+
+    ./make_dev_ssd.sh --remove_rootfs_verification --partitions ID
+    reboot
+
+Once rebooted, go to your MeshCentral server using the ChromeBook's browser and click the "Add Agent" link for the device group you wish to install this device in. Select "Linux / BSD / macOS Binary Installer", select "Linux x86-64" for a Intel based ChromeBook. This will give you a link to the MeshAgent. Download it.
+
+Enter the terminal once more using the instructions above (ctrl-alt-t and type "shell"). Then, You must copy the meshagent binary into the into the "/usr/local" folder and install it. Run this:
+
+    sudo su -
+    cp /home/chronos/u-xxxxxxxxxxxx/Downloads/meshagent /usr/local
+    cd /usr/local
+    chmod 755 ./meshagent
+    ./meshagent -install
+
+Above, the "xxxx" is the user identifier. If there is only one user on this device, this path should be simple. MeshCentral Agent on ChromeOS will support terminal and file access along with battery monitoring and more. It will not support remote desktop.
+
+In addition to the commands above, you can also run:
+
+    ./meshagent -help
+
+This will show additional commands including how to uninstall.

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv=X-UA-Compatible content="IE=edge" />
+    <meta content="text/html;charset=utf-8" http-equiv=Content-Type />
+    <meta name=viewport content="user-scalable=0.7,initial-scale=0.7,minimum-scale=0.7,maximum-scale=1.0" />
+    <meta name=apple-mobile-web-app-capable content=yes />
+    <meta name=format-detection content="telephone=no" />
+    <meta name="robots" content="noindex,nofollow">
+    <link type=text/css href="/styles/style.css" media="screen" rel="stylesheet" title="CSS" />
+    <link rel="apple-touch-icon" href="/favicon-303x303.png" />
+    <title>MeshCentral - Screens</title>
+    <style>
+        body {
+            background-color: #147;
+            background: linear-gradient(to bottom right, #369, #036);
+            height: 100%;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial,Helvetica,sans-serif;
+        }
+
+        a:link { color: #c8c8c8; }
+        a:visited { color: #c8c8c8; }
+        a:hover { color: #c8c8c8; }
+        a:active { color: #c8c8c8; }
+        a { text-decoration: none; }
+
+        .logoimg {
+            margin:10px
+        }
+
+        .ybutton {
+            background-color:orange;
+        }
+
+        .ybutton:hover {
+            background-color:yellow;
+        }
+        
+        div#tswsidecol {
+	        float: left;
+	        width: 50%;
+        }
+
+        div#tswcontent {
+	        float: left;
+	        width: 50%;
+        }
+
+        @media only screen and (max-width: 900px) {
+	        div#tswsidecol {
+		        float: none;
+		        width: 100%;
+	        }
+	        div#tswcontent {
+		        float: none;
+		        width: 100%;
+	        }
+        }
+
+    </style>
+</head>
+<body>
+    <img style="position:absolute;left:0;bottom:0;z-index:-1;height:60%;opacity:0.1" src="../../images/login/back.png" />
+    <div style="position:relative;background-color:#147;box-shadow:black 0px 0px 60px;width:100%;height:100px;z-index:10">
+        <a href="index.html"><img style="position:absolute;left:0;top:0;z-index:0" src="banner.png" srcset="bannerhd.png 2x" /></a>
+        <div style="position:absolute;left:120px;top:10px;font-size:50px;text-shadow: 2px 2px 4px black"><b>MeshCentral</b></div>
+        <div style="position:absolute;right:0;top:0;padding:16px"><a href="/login" style="float:right"><div class="ybutton" style="width:130px;color:black;border-radius:5px;padding:8px;box-shadow: black 2px 2px 6px;text-align:center;cursor:pointer"><b>Public Server Login</b></div></a></div>
+        <div style="position:absolute;left:115px;top:60px;padding:8px">
+            <a href="index.html" style="color:#EEE"><b><u>Home</u></b></a>&nbsp;
+            <a href="downloads.html" style="color:#EEE"><b><u>Downloads</u></b></a>&nbsp;
+            <a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" style="color:#EEE"><b><u>YouTube</u></b></a>&nbsp;
+            <a href="https://twitter.com/meshcentral" style="color:#EEE"><b><u>Twitter</u></b></a>&nbsp;
+            <a href="https://meshcentral2.blogspot.com/" style="color:#EEE"><b><u>Blog</u></b></a>&nbsp;
+            <a href="https://github.com/Ylianst/MeshCentral" style="color:#EEE"><b><u>GitHub</u></b></a>&nbsp;
+            <a href="https://www.npmjs.com/package/meshcentral" style="color:#EEE"><b><u>NPM</u></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div style="position:absolute;left:20px;bottom:120px;top:120px;right:20px;text-align:center">
+        <img id="screen" src="screens/screen1.png" style="max-height:100%;max-width:100%;box-shadow:black 5px 5px 30px" />
+    </div>
+    <div style="position:absolute;left:0;bottom:0;background-color:#147;box-shadow:black 0px 0px 60px;width:100%;height:100px;z-index:10">
+        <table style="width:100%">
+            <tr>
+                <td style="width:1px;user-select:none">
+                    <div class="ybutton" style="border-radius:8px;color:white;text-align:center;margin:10px;box-shadow:black 3px 3px 10px;cursor:pointer" onclick="prev()"><div style="padding:10px"><img src="left15.png" srcset="left30.png 2x" /></div></div>
+                </td>
+                <td style="width:1px;user-select:none">
+                    <div class="ybutton" style="border-radius:8px;color:white;text-align:center;margin:10px 20px 10px 0;box-shadow:black 3px 3px 10px;cursor:pointer" onclick="next()"><div style="padding:10px"><img src="right15.png" srcset="right30.png 2x" /></div></div>
+                </td>
+                <td>
+                    <div id="desc" style="font-size:16px;margin-right:10px"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        // Quick UI functions, a bit of a replacement for jQuery
+        function Q(x) { return document.getElementById(x); }                            // "Q"
+        function QS(x) { try { return Q(x).style; } catch (x) { } }                     // "Q" style
+        function QE(x, y) { try { Q(x).disabled = !y; } catch (x) { } }                 // "Q" enable
+        function QV(x, y) { try { QS(x).display = (y ? '' : 'none'); } catch (x) { } }  // "Q" visible
+        function QA(x, y) { Q(x).innerHTML += y; }                                      // "Q" append
+        function QH(x, y) { Q(x).innerHTML = y; }                                       // "Q" html
+        function QC(x) { try { return Q(x).classList; } catch (x) { } }                 // "Q" class
+
+        var currentScreen = 0;
+        var totalScreens = 11;
+        var descriptions = {
+            1: "This is the main devices screen, you see all your devices in real time. You can sort the devices by groups, tags, power state and more. You can also search or filter devices to only see the ones your interested in.",
+            2: "When clicking on a device you get to the device general information tab. This is where you see basic information about a device, when it's been on and can change policies, change the device name and icon and more.",
+            3: "The device remote desktop tab allows you to remotely take control of a device. There are many options here including transfering the clipboard, switching displays, displaying services and processes and much more.",
+            4: "The terminal screen opens a shell session into the remote device. It's especially useful on Linux devices and embedded devices that don't have a remote desktop. You can right click on the connect button to select the type of terminal session to open.",
+            5: "The file tab allows file management of a remote device. You can click on a file to download it, drag & drop a file into the browser to upload and can rename, delete and create a zip file from here.",
+            6: "The device events view on one of the screens availalble to see what has been going on with a device in the past. Management operations are logged into the database and shown here in real time.",
+            7: "The details tab shows the devices hardware and software configuration. This includes operating system, network interfaces, storage devices and more. There is also a graph icon on the upper right to show CPU and memory usage in real time.",
+            8: "The account tab is where you manage your MeshCentral account. You can change you password, setup two-factor authentication, change language settings and create or remote device groups.",
+            9: "If you run your own instance of MeshCentral, you get to view the user administration tab where you can see which users are currently online and can perform user management operations.",
+            10: "For server administrators, this screen shows the server's statistics in real time including memory use and number of users, agents and remote sessions active right now. You can also update the server from this screen.",
+            11: "Server administrators can also see a recorded graph of server statistics up to 3 months prior. See how many users and agents are logged in to your server."
+        }
+
+        function next() {
+            currentScreen = (currentScreen + 1) % totalScreens;
+            setScreen(currentScreen);
+        }
+
+        function prev() {
+            currentScreen = (currentScreen + (totalScreens - 1)) % totalScreens;
+            setScreen(currentScreen);
+        }
+
+        function setScreen(x) {
+            Q('screen').src = "screens/screen" + (x+1) + ".png";
+            if (descriptions[x+1] != null) {
+                QH('desc', (currentScreen + 1) + ' of ' + totalScreens + ' - ' + descriptions[x+1]);
+            } else {
+                QH('desc', (currentScreen + 1) + ' of ' + totalScreens);
+            }
+        }
+
+        setScreen(currentScreen);
+
+    </script>
+</body>
+</html>
