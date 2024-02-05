@@ -8,12 +8,12 @@ cd ~
 sudo yum update -y
 
 # Install NodeJS, latest TLS version
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.5/install.sh | bash
 . ~/.nvm/nvm.sh
-nvm install v10.15.1
+nvm install v16.20.2
 
 # Set NodeJS port permissions
-sudo setcap cap_net_bind_service=+ep /home/ec2-user/.nvm/versions/node/v10.15.1/bin/node
+sudo setcap cap_net_bind_service=+ep /home/ec2-user/.nvm/versions/node/v16.20.2/bin/node
 
 # Install MongoDB
 echo -e "[mongodb-org-4.0]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.0/x86_64/\ngpgcheck=1\nenabled=1\ngpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc\n" > mongodb.repo
@@ -49,7 +49,7 @@ echo -e "mongodump --archive=backup.archive" > dbbackup
 chmod 755 dbbackup
 
 # Setup Systemd to launch MeshCentral
-echo -e "[Unit]\nDescription=MeshCentral Server\n\n[Service]\nType=simple\nLimitNOFILE=1000000\nExecStart=/home/ec2-user/.nvm/versions/node/v10.15.1/bin/node /home/ec2-user/node_modules/meshcentral\nWorkingDirectory=/home/ec2-user\nUser=ec2-user\nGroup=ec2-user\nRestart=always\n# Restart service after 10 seconds if node service crashes\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target\n" > meshcentral.service
+echo -e "[Unit]\nDescription=MeshCentral Server\n\n[Service]\nType=simple\nLimitNOFILE=1000000\nExecStart=/home/ec2-user/.nvm/versions/node/v16.20.2/bin/node /home/ec2-user/node_modules/meshcentral\nWorkingDirectory=/home/ec2-user\nUser=ec2-user\nGroup=ec2-user\nRestart=always\n# Restart service after 10 seconds if node service crashes\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target\n" > meshcentral.service
 sudo cp meshcentral.service /etc/systemd/system/meshcentral.service
 rm meshcentral.service
 sudo systemctl enable meshcentral.service
