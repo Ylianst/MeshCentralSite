@@ -8,12 +8,12 @@ cd ~
 sudo yum update -y
 
 # Install NodeJS, latest TLS version
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.5/install.sh | bash
 . ~/.nvm/nvm.sh
-nvm install v12.22.12
+nvm install v16.20.2
 
 # Set NodeJS port permissions
-sudo setcap cap_net_bind_service=+ep /home/ec2-user/.nvm/versions/node/v12.22.12/bin/node
+sudo setcap cap_net_bind_service=+ep /home/ec2-user/.nvm/versions/node/v16.20.2/bin/node
 
 # Install MeshCentral
 npm install meshcentral
@@ -39,7 +39,7 @@ echo -e "sudo systemctl stop meshcentral.service\nnpm install meshcentral\nsudo 
 chmod 755 update
 
 # Setup Systemd to launch MeshCentral
-echo -e "[Unit]\nDescription=MeshCentral Server\n\n[Service]\nType=simple\nLimitNOFILE=1000000\nExecStart=/home/ec2-user/.nvm/versions/node/v12.22.12/bin/node /home/ec2-user/node_modules/meshcentral\nWorkingDirectory=/home/ec2-user\nUser=ec2-user\nGroup=ec2-user\nRestart=always\n# Restart service after 10 seconds if node service crashes\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target\n" > meshcentral.service
+echo -e "[Unit]\nDescription=MeshCentral Server\n\n[Service]\nType=simple\nLimitNOFILE=1000000\nExecStart=/home/ec2-user/.nvm/versions/node/v16.20.2/bin/node /home/ec2-user/node_modules/meshcentral\nWorkingDirectory=/home/ec2-user\nUser=ec2-user\nGroup=ec2-user\nRestart=always\n# Restart service after 10 seconds if node service crashes\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target\n" > meshcentral.service
 sudo cp meshcentral.service /etc/systemd/system/meshcentral.service
 rm meshcentral.service
 sudo systemctl enable meshcentral.service
