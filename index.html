@@ -105,7 +105,7 @@
           </svg>
         </div>
         <h3 class="bento-title">In-Browser Remote Control</h3>
-        <p class="bento-desc">Zero-install VNC and WebRTC connection pipelines. Control user screens, synchronize clipboards, and handle administrative login prompts smoothly on Windows, macOS, Linux, and FreeBSD servers.</p>
+        <p class="bento-desc">Secure remote desktop over encrypted WebSocket tunnels. Control screens, sync clipboards, and handle admin prompts on Windows, macOS, Linux, and FreeBSD. WebRTC is optionally used for low-latency sessions on the same LAN.</p>
       </div>
 
       <!-- Feature 2: Intel AMT -->
@@ -137,8 +137,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"></path>
           </svg>
         </div>
-        <h3 class="bento-title">High-Speed File Transfer</h3>
-        <p class="bento-desc">Full remote file explorer layout. Drag and drop file uploads, manage server structures, copy assets, and perform batch file operations completely through secure HTTPS tunnels.</p>
+        <h3 class="bento-title">Secure Remote File Management</h3>
+        <p class="bento-desc">Full remote file explorer. Upload, download, and manage files through encrypted tunnels. Note: Large transfers can be slower depending on network conditions (known area of ongoing improvement).</p>
       </div>
 
       <!-- Feature 5: Security -->
@@ -170,8 +170,8 @@
     <div class="container">
       <div class="section-header">
         <span class="gradient-text-cyan" style="font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; display: block;">Interactive sandbox</span>
-        <h2>Experience MeshCentral in Action</h2>
-        <p>Click a device below to open a simulated browser-based remote control console session instantly.</p>
+        <h2>See What It's Like to Use MeshCentral</h2>
+        <p>This is an interactive simulation of the remote management workflow. It demonstrates the experience and capabilities (remote desktop, terminal, files) without requiring a real installation. Real MeshCentral UI screenshots are available in the project documentation and GitHub.</p>
       </div>
 
       <div class="sim-container">
@@ -389,39 +389,66 @@
 
       <div class="tab-headers">
         <div class="tab-header active" data-tab="tab-npm">NPM Setup</div>
-        <div class="tab-header" data-tab="tab-docker">Docker Container</div>
-        <div class="tab-header" data-tab="tab-npx">NPX Instant Run</div>
+        <div class="tab-header" data-tab="tab-docker">Docker</div>
+        <div class="tab-header" data-tab="tab-compose">Docker Compose</div>
       </div>
 
       <div id="tab-npm" class="tab-content active">
         <div class="code-block">
           <button class="code-copy-btn">Copy</button>
-          <pre><code># Install MeshCentral globally
+          <pre><code># Install globally
 npm install -g meshcentral
 
-# Run the installation service Setup
-node node_modules/meshcentral</code></pre>
+# One-time interactive setup (recommended first run)
+node node_modules/meshcentral
+
+# For production: install as a system service
+node node_modules/meshcentral --install</code></pre>
         </div>
+        <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">
+          <code>--install</code> sets up MeshCentral as a background service that starts on boot.
+        </p>
       </div>
 
       <div id="tab-docker" class="tab-content">
         <div class="code-block">
           <button class="code-copy-btn">Copy</button>
-          <pre><code># Pull and launch official MeshCentral container
+          <pre><code># Recommended Docker run (with common volumes)
 docker run -d \
-  --name=meshcentral \
+  --name meshcentral \
   -p 80:80 -p 443:443 \
-  -v meshcentral-data:/meshcentral/meshcentral-data \
-  -v meshcentral-files:/meshcentral/meshcentral-files \
+  -v meshcentral-data:/opt/meshcentral/meshcentral-data \
+  -v meshcentral-files:/opt/meshcentral/meshcentral-files \
+  -v meshcentral-certs:/opt/meshcentral/meshcentral-certs \
+  -v meshcentral-backups:/opt/meshcentral/meshcentral-backups \
   ghcr.io/ylianst/meshcentral:latest</code></pre>
         </div>
       </div>
 
-      <div id="tab-npx" class="tab-content">
+      <div id="tab-compose" class="tab-content">
         <div class="code-block">
           <button class="code-copy-btn">Copy</button>
-          <pre><code># Run instant sandbox node without installing
-npx meshcentral --port 8080 --launch</code></pre>
+          <pre><code># docker-compose.yml example (recommended for production)
+version: '3'
+services:
+  meshcentral:
+    image: ghcr.io/ylianst/meshcentral:latest
+    container_name: meshcentral
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - meshcentral-data:/opt/meshcentral/meshcentral-data
+      - meshcentral-files:/opt/meshcentral/meshcentral-files
+      - meshcentral-certs:/opt/meshcentral/meshcentral-certs
+      - meshcentral-backups:/opt/meshcentral/meshcentral-backups
+
+volumes:
+  meshcentral-data:
+  meshcentral-files:
+  meshcentral-certs:
+  meshcentral-backups:</code></pre>
         </div>
       </div>
     </div>
@@ -463,18 +490,19 @@ npx meshcentral --port 8080 --launch</code></pre>
           <span class="dl-cta">ghcr.io/ylianst →</span>
         </a>
 
-        <a href="https://github.com/Ylianst/MeshCentral/wiki" target="_blank" class="download-card">
+        <a href="https://docs.meshcentral.com/" target="_blank" class="download-card">
           <div class="dl-icon">📖</div>
           <div>
-            <h4>Documentation & Wiki</h4>
-            <p>Community-maintained guides, AMT setup, clustering, security hardening, and troubleshooting.</p>
+            <h4>Official Documentation</h4>
+            <p>Official guides at docs.meshcentral.com — AMT setup, clustering, security, and troubleshooting.</p>
           </div>
-          <span class="dl-cta">Browse Wiki →</span>
+          <span class="dl-cta">docs.meshcentral.com →</span>
         </a>
       </div>
 
       <div class="downloads-note">
         Also check the <a href="https://meshcentral2.blogspot.com/" target="_blank">official blog</a> and <a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" target="_blank">YouTube channel</a> for tutorials and release notes.
+        Official community chat: <a href="https://github.com/Ylianst/MeshCentral#community" target="_blank">Discord • Telegram • Signal</a>
       </div>
     </div>
   </section>
@@ -525,9 +553,10 @@ npx meshcentral --port 8080 --launch</code></pre>
           <h5>Community</h5>
           <ul class="footer-links">
             <li><a href="https://github.com/Ylianst/MeshCentral" target="_blank" class="footer-link">GitHub Repository</a></li>
-            <li><a href="https://github.com/Ylianst/MeshCentral/discussions" target="_blank" class="footer-link">Discussions</a></li>
+            <li><a href="https://github.com/Ylianst/MeshCentral/discussions" target="_blank" class="footer-link">GitHub Discussions</a></li>
             <li><a href="https://meshcentral2.blogspot.com/" target="_blank" class="footer-link">Project Blog</a></li>
             <li><a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" target="_blank" class="footer-link">YouTube Guides</a></li>
+            <li><a href="https://github.com/Ylianst/MeshCentral#community" target="_blank" class="footer-link">Discord • Telegram • Signal</a></li>
           </ul>
         </div>
         
