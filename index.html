@@ -1,187 +1,586 @@
-﻿<!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv=X-UA-Compatible content="IE=edge" />
-    <meta content="text/html;charset=utf-8" http-equiv=Content-Type />
-    <meta name=viewport content="user-scalable=0.7,initial-scale=0.7,minimum-scale=0.7,maximum-scale=1.0" />
-    <meta name=apple-mobile-web-app-capable content=yes />
-    <meta name=format-detection content="telephone=no" />
-    <meta name="robots" content="noindex,nofollow">
-    <link type=text/css href="/styles/style.css" media="screen" rel="stylesheet" title="CSS" />
-    <link rel="apple-touch-icon" href="/favicon-303x303.png" />
-    <title>MeshCentral</title>
-    <style>
-        body {
-            background-color: #147;
-            background: linear-gradient(to right, #369, #036);
-            height: 100%;
-            color: white;
-            margin: 0;
-            padding: 0;
-            font-family: Arial,Helvetica,sans-serif;
-        }
-
-        a:link { color: #c8c8c8; }
-        a:visited { color: #c8c8c8; }
-        a:hover { color: #c8c8c8; }
-        a:active { color: #c8c8c8; }
-        a { text-decoration: none; }
-
-        .logoimg {
-            margin:10px
-        }
-
-        .ybutton {
-            background-color:orange;
-        }
-
-        .ybutton:hover {
-            background-color:yellow;
-        }
-
-        div#tswsidecol {
-	        float: left;
-	        width: 50%;
-        }
-
-        div#tswcontent {
-	        float: left;
-	        width: 50%;
-        }
-
-        @media only screen and (max-width: 900px) {
-	        div#tswsidecol {
-		        float: none;
-		        width: 100%;
-	        }
-	        div#tswcontent {
-		        float: none;
-		        width: 100%;
-	        }
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MeshCentral: The open-source, multi-platform, self-hosted remote monitoring and management (RMM) powerhouse. Control your computers and servers securely from your browser.">
+  <meta name="keywords" content="MeshCentral, open source RMM, remote monitoring management, self-hosted remote desktop, remote terminal, web SSH, Intel AMT, Intel vPro, CIRA">
+  <meta name="author" content="MeshCentral Community">
+  
+  <title>MeshCentral — Open Source Remote Monitoring & Management</title>
+  
+  <link rel="icon" type="image/png" href="https://meshcentral.com/favicon-303x303.png">
+  <link rel="apple-touch-icon" href="https://meshcentral.com/favicon-303x303.png">
+  
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <img style="position:absolute;left:0;bottom:0;z-index:-1;height:60%;opacity:0.1" src="main-images/back.png" />
-    <div style="position:relative;background-color:#147;box-shadow:black 0px 0px 60px;width:100%;height:100px;z-index:10">
-        <a href="index.html"><img style="position:absolute;left:0;top:0;z-index:0" src="banner.png" srcset="bannerhd.png 2x" /></a>
-        <div style="position:absolute;left:120px;top:10px;font-size:50px;text-shadow: 2px 2px 4px black"><b>MeshCentral</b></div>
-        <div style="position:absolute;right:0;top:0;padding:16px;display:none"><a href="/login" style="float:right"><div class="ybutton" style="width:130px;color:black;border-radius:5px;padding:8px;box-shadow: black 2px 2px 6px;text-align:center;cursor:pointer"><b>Public Server Login</b></div></a></div>
-        <div style="position:absolute;left:115px;top:60px;padding:8px">
-            <a href="screens.html" style="color:#EEE"><b><u>Screens</u></b></a>&nbsp;
-            <a href="downloads.html" style="color:#EEE"><b><u>Downloads</u></b></a>&nbsp;
-            <a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" style="color:#EEE"><b><u>YouTube</u></b></a>&nbsp;
-            <a href="https://meshcentral2.blogspot.com/" style="color:#EEE"><b><u>Blog</u></b></a>&nbsp;
-            <a href="https://github.com/Ylianst/MeshCentral" style="color:#EEE"><b><u>GitHub</u></b></a>&nbsp;
-            <a href="https://www.npmjs.com/package/meshcentral" style="color:#EEE"><b><u>NPM</u></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
+
+  <!-- Glowing Atmosphere Elements -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: -1;">
+    <svg style="width: 100%; height: 100%; opacity: 0.15;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+          <line x1="6" y1="6" x2="6.01" y2="6"/>
+          <line x1="6" y1="18" x2="6.01" y2="18"/>
+        </svg>
+        <span>MeshCentral</span>
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#demo" class="nav-link">Live Demo</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#setup" class="nav-link">Quickstart</a></li>
+        <li><a href="#downloads" class="nav-link">Downloads</a></li>
+        <li><a href="https://meshcentral2.blogspot.com/" target="_blank" class="nav-link">Blog</a></li>
+        <li><a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" target="_blank" class="nav-link">Videos</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="https://github.com/Ylianst/MeshCentral" target="_blank" class="btn btn-secondary">
+          <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
-    <div style="position:absolute;left:0;right:0;top:120px;bottom:0;overflow:auto">
-        <div style="height:calc(100vh - 980px)"></div>
-        <div id="tswcontainer">
-            <div id="tswcontent">
-                <div id="tswcontproper" style="text-shadow: 1px 1px 4px black;padding:8px">
-                    <!-- start of content column: insert your content here -->
+  </header>
 
-                    <div style="width:480px;padding-top:80px;padding-bottom:20px;margin:auto">
-                        <div style="font-size:60px;margin-bottom:40px;text-shadow: 4px 4px 8px black">
-                            Freely manage<br />your devices.
-                        </div>
-                        <div style="font-size:20px;margin-bottom:40px;text-shadow: 2px 2px 4px black;line-height:1.4">
-                            The open source, multi-platform, self-hosted, feature packed web site for remote device management.
-                        </div>
-                        <div style="font-size:20px">
-                            <a href="docs/managementfeatures.pdf"><span style="background-color:gray;color:black;font-size:16px;padding:4px;border-radius:4px;box-shadow: 2px 2px 4px black;text-shadow:none"><b>PDF</b></span>&nbsp;<span style="text-shadow: 2px 2px 4px black">Management features</span></a><br /><br />
-                            <a href="docs/securityfeatures.pdf"><span style="background-color:gray;color:black;font-size:16px;padding:4px;border-radius:4px;box-shadow: 2px 2px 4px black;text-shadow:none"><b>PDF</b></span>&nbsp;<span style="text-shadow: 2px 2px 4px black">Security features</span></a>
-                        </div>
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm1 17h-2v-2h2v2Zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75Z"/>
+      </svg>
+      100% Free & Open Source Remote Management
+    </div>
+    
+    <h1>The Ultimate Self-Hosted <br><span class="gradient-text text-glow">Remote Administration</span> Platform</h1>
+    
+    <p class="hero-description">
+      Control, manage, and monitor your entire computer and server infrastructure directly from your web browser. Zero client installer required for technicians, highly scalable, and completely private.
+    </p>
+    
+    <div class="hero-ctas">
+      <a href="#setup" class="btn btn-primary">Deploy Server Now</a>
+      <a href="#demo" class="btn btn-secondary">Try Interactive Demo</a>
+    </div>
+  </section>
+
+  <!-- Features Bento Grid -->
+  <section id="features" class="container" style="padding: 60px 0;">
+    <div class="section-header">
+      <h2>Engineered for Absolute Sovereignty</h2>
+      <p>Everything you need for enterprise-level remote infrastructure management, hosted securely on your own hardware.</p>
+    </div>
+    
+    <div class="bento-grid">
+      <!-- Feature 1: Remote Control -->
+      <div class="glass-card bento-large">
+        <div class="bento-icon-wrapper">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"></path>
+          </svg>
+        </div>
+        <h3 class="bento-title">In-Browser Remote Control</h3>
+        <p class="bento-desc">Secure remote desktop over encrypted WebSocket tunnels. Control screens, sync clipboards, and handle admin prompts on Windows, macOS, Linux, and FreeBSD. WebRTC is optionally used for low-latency sessions on the same LAN.</p>
+      </div>
+
+      <!-- Feature 2: Intel AMT -->
+      <div class="glass-card bento-small">
+        <div class="bento-icon-wrapper">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+          </svg>
+        </div>
+        <h3 class="bento-title">Intel® AMT Integration</h3>
+        <p class="bento-desc">Full out-of-band management hardware control. Wake devices, boot directly to BIOS, and resolve OS crashes via secure CIRA tunnels bypass firewalls.</p>
+      </div>
+
+      <!-- Feature 3: Web Terminal -->
+      <div class="glass-card bento-small">
+        <div class="bento-icon-wrapper">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
+          </svg>
+        </div>
+        <h3 class="bento-title">Administrative Shell</h3>
+        <p class="bento-desc">Access secure remote terminals directly in-browser. Run shell scripts, review metrics, and execute command pipelines without interrupting the active remote desktop user session.</p>
+      </div>
+
+      <!-- Feature 4: File Explorer -->
+      <div class="glass-card bento-large">
+        <div class="bento-icon-wrapper">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"></path>
+          </svg>
+        </div>
+        <h3 class="bento-title">Secure Remote File Management</h3>
+        <p class="bento-desc">Full remote file explorer. Upload, download, and manage files through encrypted tunnels. Note: Large transfers can be slower depending on network conditions (known area of ongoing improvement).</p>
+      </div>
+
+      <!-- Feature 5: Security -->
+      <div class="glass-card bento-small">
+        <div class="bento-icon-wrapper">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path>
+          </svg>
+        </div>
+        <h3 class="bento-title">Enterprise Security</h3>
+        <p class="bento-desc">Keep audit trails, enforce multi-factor WebAuthn/FIDO2 hardware keys, and assign granular administrator access roles.</p>
+      </div>
+
+      <!-- Feature 6: Clustering -->
+      <div class="glass-card bento-large">
+        <div class="bento-icon-wrapper">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"></path>
+          </svg>
+        </div>
+        <h3 class="bento-title">High Scalability & Clustering</h3>
+        <p class="bento-desc">Deploy in cluster configurations with MongoDB backends to support thousands of active devices simultaneously. Built on NodeJS for highly efficient asynchronous connections.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive RMM Simulator Section -->
+  <section id="demo" class="simulator-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="gradient-text-cyan" style="font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; display: block;">Interactive sandbox</span>
+        <h2>See What It's Like to Use MeshCentral</h2>
+        <p>This is an interactive simulation of the remote management workflow. It demonstrates the experience and capabilities (remote desktop, terminal, files) without requiring a real installation. Real MeshCentral UI screenshots are available in the project documentation and GitHub.</p>
+      </div>
+
+      <div class="sim-container">
+        <!-- Browser Bar -->
+        <div class="sim-header">
+          <div class="sim-dots">
+            <div class="sim-dot red"></div>
+            <div class="sim-dot yellow"></div>
+            <div class="sim-dot green"></div>
+          </div>
+          <div class="sim-address-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span>https://</span>meshcentral.yourdomain.com/dashboard
+          </div>
+        </div>
+
+        <!-- Split Pane -->
+        <div class="sim-body">
+          <!-- Sidebar -->
+          <div class="sim-sidebar">
+            <div class="sim-sidebar-title">Manage</div>
+            <ul class="sim-sidebar-menu">
+              <li class="sim-menu-item active" data-view="devices">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>
+                <span>Devices</span>
+              </li>
+              <li class="sim-menu-item" data-view="desktop">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9l-6 6m0 0l6 6m-6-6h18m-6-6h-3.75a6 6 0 00-6 6v3.75"/></svg>
+                <span>Remote Desktop</span>
+              </li>
+              <li class="sim-menu-item" data-view="terminal">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+                <span>Terminal SSH</span>
+              </li>
+              <li class="sim-menu-item" data-view="files">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
+                <span>Files Manager</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Main Viewport -->
+          <div class="sim-viewport">
+            
+            <!-- Persistent Back Bar (especially valuable on mobile when sidebar is collapsed) -->
+            <div class="sim-viewport-header" id="sim-back-bar" style="display: none; align-items: center; justify-content: space-between; padding: 8px 16px; background: rgba(15, 23, 42, 0.7); border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <button id="btn-back-devices" class="btn-sim-back">← Devices</button>
+              <span id="sim-current-device" style="font-size: 12px; color: var(--text-muted); font-weight: 500;"></span>
+            </div>
+            
+            <!-- Devices Grid View -->
+            <div id="view-devices" class="sim-view active">
+              <div class="devices-list">
+                
+                <div class="device-row" data-device="ubuntu-web">
+                  <div class="device-info">
+                    <div class="device-avatar active">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/></svg>
                     </div>
-
-                    <!-- end of content column: put your content above this line -->
+                    <div class="device-meta">
+                      <h4>ubuntu-web-server-01</h4>
+                      <p>Ubuntu 22.04 LTS | Spec: 8c Xeon | Intel AMT</p>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="device-badge online">Online</span>
+                    <div class="device-actions">
+                      <button class="btn-sim-action" data-action="desktop">Desktop</button>
+                      <button class="btn-sim-action" data-action="terminal">Terminal</button>
+                      <button class="btn-sim-action" data-action="files">Files</button>
+                    </div>
+                  </div>
                 </div>
+
+                <div class="device-row" data-device="win-desktop">
+                  <div class="device-info">
+                    <div class="device-avatar active">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/></svg>
+                    </div>
+                    <div class="device-meta">
+                      <h4>corp-win11-desktop</h4>
+                      <p>Windows 11 Enterprise | IP: 10.0.4.15</p>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="device-badge online">Online</span>
+                    <div class="device-actions">
+                      <button class="btn-sim-action" data-action="desktop">Desktop</button>
+                      <button class="btn-sim-action" data-action="terminal">Terminal</button>
+                      <button class="btn-sim-action" data-action="files">Files</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="device-row" data-device="macos-build">
+                  <div class="device-info">
+                    <div class="device-avatar active">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    <div class="device-meta">
+                      <h4>macos-dev-macbook-pro</h4>
+                      <p>macOS Sequoia 15.1 | IP: 192.168.1.99</p>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="device-badge online">Online</span>
+                    <div class="device-actions">
+                      <button class="btn-sim-action" data-action="desktop">Desktop</button>
+                      <button class="btn-sim-action" data-action="terminal">Terminal</button>
+                      <button class="btn-sim-action" data-action="files">Files</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
-            <div id="tswsidecol">
-                <div id="tswsideproper">
-                    <!-- start of side column: insert your navigation menu, etc, here -->
+            <!-- Views generated via JS -->
+            <div id="view-desktop" class="sim-view"></div>
+            <div id="view-terminal" class="sim-view"></div>
+            <div id="view-files" class="sim-view"></div>
 
-                    <div style="width:500px;margin:auto">
-                        <img id="main0" src="main-images/main01.png" width="500" height="500" srcset="main-images/main01x.png 2x" />
-                        <img id="main1" src="main-images/main02.png" width="500" height="500" srcset="main-images/main02x.png 2x" style="display:none" />
-                        <img id="main2" src="main-images/main03.png" width="500" height="500" srcset="main-images/main03x.png 2x" style="display:none" />
-                        <img id="main3" src="main-images/main04.png" width="500" height="500" srcset="main-images/main04x.png 2x" style="display:none" />
-                        <img id="main4" src="main-images/main05.png" width="500" height="500" srcset="main-images/main05x.png 2x" style="display:none" />
-                        <img id="main5" src="main-images/main06.png" width="500" height="500" srcset="main-images/main06x.png 2x" style="display:none" />
-                        <img id="main6" src="main-images/main07.png" width="500" height="500" srcset="main-images/main07x.png 2x" style="display:none" />
-                    </div>
-
-                    <!-- end of side column: put your navigation menu, etc, above this line -->
-                </div>
-            </div>
-            <div style="clear:both;"></div>
+          </div>
         </div>
-        <div style="height:calc(100vh - 980px)"></div>
-        <div style="padding:12px;color:#ccc">
-            Compatible with...
-        </div>
-        <table style="background-color:#FFF;box-shadow:black 0px 0px 60px;width:100%">
-            <tr>
-                <td>
-                    <div style="color:black;padding:0px;text-align:center">
-                        <a href="https://fidoalliance.org/"><img class="logoimg" src="images40/fido.png" srcset="images80/fido.png 2x" width="87" height="40" /></a>
-                        <a href="https://www.cloudflare.com/"><img class="logoimg" src="images40/cloudflare.png" srcset="images80/cloudflare.png 2x" width="91" height="40" /></a>
-                        <a href="https://www.docker.com/"><img class="logoimg" src="images40/docker.png" srcset="images80/docker.png 2x" width="48" height="40" /></a>
-                        <a href="https://www.jumpcloud.com/"><img class="logoimg" src="images40/jumpcloud.png" srcset="images80/jumpcloud.png 2x" width="67" height="40" /></a>
-                        <a href="https://letsencrypt.org/"><img class="logoimg" src="images40/letsencrypt.png" srcset="images80/letsencrypt.png 2x" width="52" height="40" /></a>
-                        <a href="https://www.linuxfoundation.org/"><img class="logoimg" src="images40/linux.png" srcset="images80/linux.png 2x" width="36" height="40" /></a>
-                        <a href="https://nodejs.org/"><img class="logoimg" src="images40/nodejs.png" srcset="images80/nodejs.png 2x" width="65" height="40" /></a>
-                        <a href="https://nextcloud.com/"><img class="logoimg" src="images40/nextcloud.png" srcset="images80/nextcloud.png 2x" width="61" height="40" /></a>
-                        <a href="https://www.mysql.com/"><img class="logoimg" src="images40/mysql.png" srcset="images80/mysql.png 2x" width="76" height="40" /></a>
-                        <a href="https://www.mongodb.com/"><img class="logoimg" src="images40/mongodb.png" srcset="images80/mongodb.png 2x" width="140" height="40" /></a>
-                        <a href="https://mariadb.org/"><img class="logoimg" src="images40/mariadb.png" srcset="images80/mariadb.png 2x" width="53" height="40" /></a>
-                        <a href="https://sendgrid.com/"><img class="logoimg" src="images40/sendgrid.png" srcset="images80/sendgrid.png 2x" width="107" height="40" /></a>
-                        <a href="https://ubuntu.com/"><img class="logoimg" src="images40/ubuntu.png" srcset="images80/ubuntu.png 2x" width="39" height="40" /></a>
-                        <a href="https://www.microsoft.com/en-us/windows"><img class="logoimg" src="images40/windows.png" srcset="images80/windows.png 2x" width="36" height="40" /></a>
-                        <a href="https://www.openssl.org/"><img class="logoimg" src="images40/openssl.png" srcset="images80/openssl.png 2x" width="111" height="40" /></a>
-                        <a href="https://www.twilio.com/"><img class="logoimg" src="images40/twilio.png" srcset="images80/twilio.png 2x" width="83" height="40" /></a>
-                        <a href="https://www.plivo.com/"><img class="logoimg" src="images40/plivo.png" srcset="images80/plivo.png 2x" width="86" height="40" /></a>
-                        <a href="https://www.raspberrypi.org"><img class="logoimg" src="images40/raspberrypi.png" srcset="images80/raspberrypi.png 2x" width="45" height="40" /></a>
-                        <a href="https://www.apple.com/macos"><img class="logoimg" src="images40/macos.png" srcset="images80/macos.png 2x" width="85" height="40" /></a>
-                        <a href="https://www.android.com/"><img class="logoimg" src="images40/android.png" srcset="images80/android.png 2x" width="40" height="40" /></a>
-                        <a href="https://www.postgresql.org/"><img class="logoimg" src="images40/postgresql.png" srcset="images80/postgresql.png 2x" width="108" height="40" /></a>
-                        <a href="https://www.crowdsec.net/"><img class="logoimg" src="images40/crowdsec.png" srcset="images80/crowdsec.png 2x" width="189" height="40" /></a>
-                        <a href="https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol"><img class="logoimg" src="images40/ldap.png" srcset="images80/ldap.png 2x" width="104" height="40" /></a>
-                        <a href="https://telegram.org/"><img class="logoimg" src="images40/telegram.png" srcset="images80/telegram.png 2x" width="40" height="40" /></a>
-                        <a href="https://discord.com/"><img class="logoimg" src="images40/discord.png" srcset="images80/discord.png 2x" width="146" height="40" /></a>
-                        <a href="https://xmpp.org/"><img class="logoimg" src="images40/xmpp.png" srcset="images80/xmpp.png 2x" width="39" height="40" /></a>
-                        <a href="https://www.callmebot.com/"><img class="logoimg" src="images40/callmebot.png" width="160" height="40" /></a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div style="padding:12px;margin-top:20px;text-shadow: 1px 1px 4px black;font-size:16px;line-height:1.4">
-            MeshCentral is a community driven open source remote management web site built on NodeJS and available freely on NPM.
-            The server and management agent run on Windows, Linux, MacOS and FreeBSD.
-        </div>
+      </div>
     </div>
-    <script>
-        var mainImage = 0;
-        var mainCount = 7;
-        var mainTimer = setInterval(nextImage, 4000);
+  </section>
 
-        // Quick UI functions, a bit of a replacement for jQuery
-        function Q(x) { return document.getElementById(x); }                            // "Q"
-        function QS(x) { try { return Q(x).style; } catch (x) { } }                     // "Q" style
-        function QE(x, y) { try { Q(x).disabled = !y; } catch (x) { } }                 // "Q" enable
-        function QV(x, y) { try { QS(x).display = (y ? '' : 'none'); } catch (x) { } }  // "Q" visible
-        function QA(x, y) { Q(x).innerHTML += y; }                                      // "Q" append
-        function QH(x, y) { Q(x).innerHTML = y; }                                       // "Q" html
-        function QC(x) { try { return Q(x).classList; } catch (x) { } }                 // "Q" class
+  <!-- Architectural Section -->
+  <section id="architecture" class="architecture-section container">
+    <div class="arch-container">
+      <div class="arch-details">
+        <span class="gradient-text-cyan" style="font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; display: block;">Networking Overview</span>
+        <h3>Zero-Configuration NAT Traversal</h3>
+        <p>MeshCentral establishes secure bidirectional communication loops over standard HTTPS. No firewalls need to be opened, and no dynamic DNS configured for local networks.</p>
+        
+        <ul class="arch-list">
+          <li class="arch-list-item">
+            <div class="arch-item-num">1</div>
+            <div class="arch-item-text">
+              <h4>Lightweight Agent Connection</h4>
+              <p>The client MeshAgent initiates an outbound secure WebSocket connection back to the self-hosted MeshCentral server over standard HTTPS port 443.</p>
+            </div>
+          </li>
+          <li class="arch-list-item">
+            <div class="arch-item-num">2</div>
+            <div class="arch-item-text">
+              <h4>Secure Persistent Tunnel</h4>
+              <p>The connection is upgraded to a persistent TLS WebSocket. The server maps the device behind any standard NAT, gateway, or home firewall without configuration.</p>
+            </div>
+          </li>
+          <li class="arch-list-item">
+            <div class="arch-item-num">3</div>
+            <div class="arch-item-text">
+              <h4>technician Web Access</h4>
+              <p>The administrator logs into MeshCentral from any browser. Remote desktop commands, terminal signals, and files flow inside the WebSocket tunnel seamlessly.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-        function nextImage() {
-            mainImage = (mainImage + 1) % mainCount;
-            for (var i = 0; i < mainCount; i++) { QV('main' + i, i == mainImage) }
-        }
-    </script>
+      <div class="arch-diagram-wrapper">
+        <svg class="arch-svg" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Server Node -->
+          <rect x="200" y="20" width="100" height="60" rx="10" fill="rgba(139, 92, 246, 0.15)" stroke="var(--neon-purple)" stroke-width="2"/>
+          <text x="250" y="45" fill="#fff" font-family="var(--font-heading)" font-size="11" font-weight="700" text-anchor="middle">MeshCentral</text>
+          <text x="250" y="65" fill="var(--text-muted)" font-family="var(--font-body)" font-size="9" text-anchor="middle">Self-Hosted Server</text>
+          
+          <!-- Firewall Line -->
+          <line x1="20" y1="160" x2="480" y2="160" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="450" y="150" fill="var(--text-muted)" font-family="var(--font-body)" font-size="9">Local Firewall (NAT)</text>
+
+          <!-- Device Node A (Windows) -->
+          <rect x="40" y="240" width="110" height="60" rx="10" fill="rgba(6, 182, 212, 0.1)" stroke="var(--neon-cyan)" stroke-width="1.5"/>
+          <text x="95" y="265" fill="#fff" font-family="var(--font-heading)" font-size="11" font-weight="700" text-anchor="middle">Windows Server</text>
+          <text x="95" y="285" fill="var(--neon-cyan)" font-family="var(--font-body)" font-size="9" text-anchor="middle">MeshAgent Running</text>
+
+          <!-- Device Node B (Linux AMT) -->
+          <rect x="195" y="240" width="110" height="60" rx="10" fill="rgba(6, 182, 212, 0.1)" stroke="var(--neon-cyan)" stroke-width="1.5"/>
+          <text x="250" y="265" fill="#fff" font-family="var(--font-heading)" font-size="11" font-weight="700" text-anchor="middle">Intel AMT Hardware</text>
+          <text x="250" y="285" fill="var(--neon-cyan)" font-family="var(--font-body)" font-size="9" text-anchor="middle">Out-of-band CIRA</text>
+
+          <!-- Device Node C (macOS) -->
+          <rect x="350" y="240" width="110" height="60" rx="10" fill="rgba(6, 182, 212, 0.1)" stroke="var(--neon-cyan)" stroke-width="1.5"/>
+          <text x="405" y="265" fill="#fff" font-family="var(--font-heading)" font-size="11" font-weight="700" text-anchor="middle">MacBook Pro</text>
+          <text x="405" y="285" fill="var(--neon-cyan)" font-family="var(--font-body)" font-size="9" text-anchor="middle">MeshAgent Active</text>
+
+          <!-- Connection Arrows -->
+          <!-- A to Server -->
+          <path d="M95 240V160V80H200" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="2 2"/>
+          <circle cx="95" cy="180" r="4" fill="var(--neon-cyan)"/>
+          
+          <!-- B to Server -->
+          <path d="M250 240V80" stroke="var(--neon-cyan)" stroke-width="2" fill="none"/>
+          <circle cx="250" cy="140" r="4" fill="var(--neon-cyan)"/>
+
+          <!-- C to Server -->
+          <path d="M405 240V160V80H300" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="2 2"/>
+          <circle cx="405" cy="180" r="4" fill="var(--neon-cyan)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setup Section -->
+  <section id="setup" class="setup-section">
+    <div class="container setup-tabs">
+      <div class="section-header">
+        <h2>Single Command Deployment</h2>
+        <p>Launch a secure, production-grade remote management node in less than two minutes. Choose your configuration below.</p>
+      </div>
+
+      <div class="tab-headers">
+        <div class="tab-header active" data-tab="tab-npm">NPM Setup</div>
+        <div class="tab-header" data-tab="tab-docker">Docker</div>
+        <div class="tab-header" data-tab="tab-compose">Docker Compose</div>
+      </div>
+
+      <div id="tab-npm" class="tab-content active">
+        <div class="code-block">
+          <button class="code-copy-btn">Copy</button>
+          <pre><code># Install globally
+npm install -g meshcentral
+
+# One-time interactive setup (recommended first run)
+node node_modules/meshcentral
+
+# For production: install as a system service
+node node_modules/meshcentral --install</code></pre>
+        </div>
+        <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">
+          <code>--install</code> sets up MeshCentral as a background service that starts on boot.
+        </p>
+      </div>
+
+      <div id="tab-docker" class="tab-content">
+        <div class="code-block">
+          <button class="code-copy-btn">Copy</button>
+          <pre><code># Recommended Docker run (with common volumes)
+docker run -d \
+  --name meshcentral \
+  -p 80:80 -p 443:443 \
+  -v meshcentral-data:/opt/meshcentral/meshcentral-data \
+  -v meshcentral-files:/opt/meshcentral/meshcentral-files \
+  -v meshcentral-certs:/opt/meshcentral/meshcentral-certs \
+  -v meshcentral-backups:/opt/meshcentral/meshcentral-backups \
+  ghcr.io/ylianst/meshcentral:latest</code></pre>
+        </div>
+      </div>
+
+      <div id="tab-compose" class="tab-content">
+        <div class="code-block">
+          <button class="code-copy-btn">Copy</button>
+          <pre><code># docker-compose.yml example (recommended for production)
+version: '3'
+services:
+  meshcentral:
+    image: ghcr.io/ylianst/meshcentral:latest
+    container_name: meshcentral
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - meshcentral-data:/opt/meshcentral/meshcentral-data
+      - meshcentral-files:/opt/meshcentral/meshcentral-files
+      - meshcentral-certs:/opt/meshcentral/meshcentral-certs
+      - meshcentral-backups:/opt/meshcentral/meshcentral-backups
+
+volumes:
+  meshcentral-data:
+  meshcentral-files:
+  meshcentral-certs:
+  meshcentral-backups:</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads & Resources Section -->
+  <section id="downloads" class="downloads-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get MeshCentral</h2>
+        <p>Everything you need to run your own instance or manage devices. All 100% open source.</p>
+      </div>
+
+      <div class="downloads-grid">
+        <a href="https://github.com/Ylianst/MeshCentral/releases/latest" target="_blank" class="download-card">
+          <div class="dl-icon">📦</div>
+          <div>
+            <h4>Server + Agents</h4>
+            <p>Latest release on GitHub. Includes Windows, Linux, macOS, FreeBSD agents and the Node.js server.</p>
+          </div>
+          <span class="dl-cta">Download →</span>
+        </a>
+
+        <a href="https://www.npmjs.com/package/meshcentral" target="_blank" class="download-card">
+          <div class="dl-icon">⬡</div>
+          <div>
+            <h4>npm Package</h4>
+            <p><code>npm install -g meshcentral</code><br>Fastest way to get the server running.</p>
+          </div>
+          <span class="dl-cta">View on npm →</span>
+        </a>
+
+        <a href="https://github.com/Ylianst/MeshCentral/pkgs/container/meshcentral" target="_blank" class="download-card">
+          <div class="dl-icon">🐳</div>
+          <div>
+            <h4>Docker Image</h4>
+            <p>Official container on GHCR.<br>One-command production deployment.</p>
+          </div>
+          <span class="dl-cta">ghcr.io/ylianst →</span>
+        </a>
+
+        <a href="https://docs.meshcentral.com/" target="_blank" class="download-card">
+          <div class="dl-icon">📖</div>
+          <div>
+            <h4>Official Documentation</h4>
+            <p>Official guides at docs.meshcentral.com — AMT setup, clustering, security, and troubleshooting.</p>
+          </div>
+          <span class="dl-cta">docs.meshcentral.com →</span>
+        </a>
+      </div>
+
+      <div class="downloads-note">
+        Also check the <a href="https://meshcentral2.blogspot.com/" target="_blank">official blog</a> and <a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" target="_blank">YouTube channel</a> for tutorials and release notes.
+        Official community chat: <a href="https://github.com/Ylianst/MeshCentral#community" target="_blank">Discord • Telegram • Signal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout (GitHub Pride) -->
+  <section class="callout-section container">
+    <div class="callout-card">
+      <h2>100% Free. Active Community. No Limits.</h2>
+      <p>
+        MeshCentral is and always will be completely free software. It is maintained by a global ecosystem of IT professionals, administrators, and contributors.
+      </p>
+      <div class="hero-ctas" style="margin-bottom: 0;">
+        <a href="https://github.com/Ylianst/MeshCentral" target="_blank" class="btn btn-primary">Star on GitHub</a>
+        <a href="https://github.com/Ylianst/MeshCentral/discussions" target="_blank" class="btn btn-secondary">Join Discussions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo-col">
+          <a href="#" class="logo" style="margin-bottom: 16px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+            </svg>
+            <span>MeshCentral</span>
+          </a>
+          <p>
+            Premium, completely open-source self-hosted RMM platform for complete remote control sovereignty.
+          </p>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul class="footer-links">
+            <li><a href="#features" class="footer-link">Core Features</a></li>
+            <li><a href="#demo" class="footer-link">RMM Simulator</a></li>
+            <li><a href="#architecture" class="footer-link">Architecture</a></li>
+            <li><a href="#setup" class="footer-link">Quickstart Guide</a></li>
+            <li><a href="#downloads" class="footer-link">Downloads</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Community</h5>
+          <ul class="footer-links">
+            <li><a href="https://github.com/Ylianst/MeshCentral" target="_blank" class="footer-link">GitHub Repository</a></li>
+            <li><a href="https://github.com/Ylianst/MeshCentral/discussions" target="_blank" class="footer-link">GitHub Discussions</a></li>
+            <li><a href="https://meshcentral2.blogspot.com/" target="_blank" class="footer-link">Project Blog</a></li>
+            <li><a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" target="_blank" class="footer-link">YouTube Guides</a></li>
+            <li><a href="https://github.com/Ylianst/MeshCentral#community" target="_blank" class="footer-link">Discord • Telegram • Signal</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Intel AMT Tools</h5>
+          <ul class="footer-links">
+            <li><a href="https://info.meshcentral.com/" target="_blank" class="footer-link">MeshCommander</a></li>
+            <li><a href="https://info.meshcentral.com/meshcommander.html" target="_blank" class="footer-link">Out-of-band AMT</a></li>
+            <li><a href="https://github.com/Ylianst/MeshCentral" target="_blank" class="footer-link">CIRA Configuration</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>© 2026 MeshCentral Open Source Project. Released under Apache License 2.0.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="https://github.com/Ylianst/MeshCentral" target="_blank" class="footer-link">GitHub</a>
+          <a href="https://meshcentral2.blogspot.com/" target="_blank" class="footer-link">Blog</a>
+          <a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos" target="_blank" class="footer-link">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
 </body>
 </html>
